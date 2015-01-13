@@ -1,0 +1,42 @@
+package algo.sorting.insertion;
+
+/**
+ * Created by Jainik on 1/11/2015.
+ */
+public class InsertionSort {
+    private long[] a;
+    private int n;
+
+    public InsertionSort(int n) {
+        a = new long[n];
+        this.n = 0;
+    }
+
+    public void insert(long element) {
+        a[n] = element;
+        n++;
+    }
+
+    public void display() {
+        for (int i = 0; i < n; i++) {
+            System.out.print(a[i] + ", ");
+        }
+        System.out.println();
+    }
+
+    public void insertionSort() {
+        int in, out;
+
+        for(out = 1; out < n; out++) {
+            long temp = a[out];
+            in = out;
+
+            while(in>0 && a[in-1] >= temp) {
+                a[in] = a[in - 1];
+                in--;
+            }
+
+            a[in] = temp;
+        }
+    }
+}
